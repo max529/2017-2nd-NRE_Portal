@@ -1,0 +1,116 @@
+extends layout
+
+block content
+    div.container
+        h3 Entering my private installation
+        ul.stepper.linear
+            li.step.active
+                div.step-title.waves-effect Location
+                div.step-content
+                    div.row
+                        div.input-field.col.s6
+                            i.material-icons.prefix location_on
+                            input#street.validate(name="street", type="text", required="required")
+                            label(for="street") Street
+
+                        div.input-field.col.s6
+                            i.material-icons.prefix map
+                            input#number.validate(name="number", type="number", required="required")
+                            label(for="number") N°
+                    div.row
+                        div.input-field.col.s6
+                            i.material-icons.prefix near_me
+                            input#postcode.validate(name="postcode", type="number", required="required")
+                            label(for="postcode") Postcode
+                        div.input-field.col.s6
+                            i.material-icons.prefix place
+                            input#city.validate(name="city", type="text", required="required")
+                            label(for="city") City
+                    div.step-actions
+                        button.waves-effect.yellow.lighten-1.black-text.btn.next-step.right NEXT
+                            i.material-icons.left arrow_forward
+            li.step
+                div.step-title.waves-effect Type of installation
+                div.step-content
+                    div.row
+                        i.material-icons.left lightbulb_outline
+                        div.col.s3 Renewable energy :
+                        div.col.s3
+                            p
+                                input#aeolian(name="energy", type="radio", required)
+                                label(for="aeolian") Aeolian
+                            p
+                                input#photovoltaic(name="energy", type="radio")
+                                label(for="photovoltaic") Photovoltaic
+                            p
+                                input#biogas(name="energy", type="radio")
+                                label(for="biogas") Bio-gas
+                            p
+                                input#hydraulic(name="energy", type="radio")
+                                label(for="hydraulic") Mini-hydraulic
+                        i.material-icons.left play_for_work
+                        div.col.s3 Type of integration :
+                        div.col.s3
+                            p
+                                input#added(name="integration", type="radio", required)
+                                label(for="added") Added
+                            p
+                                input#integrated(name="integration", type="radio")
+                                label(for="integrated") Integrated
+                    div.row
+                        i.material-icons.left wb_sunny
+                        div.col.s3 Type of PV cells :
+                        div.col.s3
+                            p
+                                input#poly(name="pv", type="radio", required)
+                                label(for="poly") Polycrystalline
+                            p
+                                input#mono(name="pv", type="radio")
+                                label(for="mono") Monocrystalline
+                    div.step-actions
+                        button.waves-effect.btn.previous-step.yellow.lighten-1.black-text BACK
+                            i.material-icons.left arrow_back
+                        button.waves-effect.btn.next-step.right.yellow.lighten-1.black-text NEXT
+                            i.material-icons.left arrow_forward
+            li.step
+                div.step-title.waves-effect Orientation
+                div.step-content
+                    div.row
+                        div.input-field.col.s6
+                            input#orientation.validate(name="orientation", type="number", required="required")
+                            label(for="street") Field orientation (azimuth) '[°]
+                        div.input-field.col.s6
+                            input#slope.validate(name="slope", type="number", required="required")
+                            label(for="postcode") Slope of the roof '[°]
+                    div.step-actions
+                        button.waves-effect.waves-green.btn.previous-step BACK
+                            i.material-icons.left arrow_back
+                        button.waves-effect.waves-green.btn.next-step.right NEXT
+                            i.material-icons.left arrow_forward
+            li.step
+                div.step-title.waves-effect Area
+                div.step-content
+                    div.row
+                        div.input-field.col.s6
+                            input#length.validate(name="length", type="number", required="required")
+                            label(for="length") Length '[m]
+                        div.input-field.col.s6
+                            input#width.validate(name="width", type="number", required="required")
+                            label(for="width") Width '[m]
+                    div.row
+                        div.input-field.col.s6
+                            input#area.validate(name="area", type="number", required="required")
+                            label(for="area") Area '[m2]
+                    div.step-actions
+                        button.waves-effect.btn.previous-step.yellow.lighten-1.black-text BACK
+                            i.material-icons.left arrow_back
+                        button(onclick="saveInstallation()").waves-effect.btn.next-step.right.yellow.lighten-1.black-text SAVE
+                            i.material-icons.left save
+    div#modal1.modal
+        .modal-content
+            h4 Validation
+            p
+                span Installation ajouté avec le numero&#32;
+                span#no 5
+        .modal-footer
+            a.modal-action.modal-close.waves-effect.waves-green.btn-flat(onclick="reloaded()") Agree

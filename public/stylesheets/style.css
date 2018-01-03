@@ -1,0 +1,25 @@
+ul.stepper .step-actions {
+    display: block !important;
+}
+#pathContent{
+    margin: 15px auto;
+    font-size: 18px;
+
+}
+
+img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    z-index: -20;
+}
+.bold{
+    font-weight: bold;
+}
+.padding{
+    padding-left: 5px;
+    padding-right: 5px;
+}

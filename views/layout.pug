@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/materialize.min.css')
+    link(rel='stylesheet', href='/stylesheets/materialize-stepper.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(src="/javascripts/materialize.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js")
+    script(src="/javascripts/materialize-stepper.min.js")
+    script(src="/javascripts/default.js")
+
+  body
+    nav
+      .nav-wrapper.yellow.lighten-1
+        a.brand-logo.center(href='/').black-text Energy
+          i.material-icons home
+    div#pathContent.container
+      each val, index in path
+        if(index == path.length-1)
+          a.bold(href=val.path) #{val.name}
+        else
+          a(href=val.path) #{val.name}
+        if(index != path.length - 1)
+          span.padding /
+    block content
